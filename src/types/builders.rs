@@ -82,6 +82,7 @@ pub fn binary<'inner>() -> Type {
 }
 
 /// Create a column that points to some foreign table
+#[deprecated(since="0.6.6", note="this doesn't work for mysql. Use `add_foreign_key` instead")]
 pub fn foreign<S, I>(table: S, keys: I) -> Type
 where
     S: Into<String>,
@@ -93,6 +94,7 @@ where
 /// Like `foreign(...)` but letting you provide an external schema
 ///
 /// This function is important when making cross-schema references
+#[deprecated(since="0.6.6", note="this doesn't work for mysql. Use `add_foreign_key` instead")]
 pub fn foreign_schema<S, I>(schema: S, table: S, keys: I) -> Type
 where
     S: Into<String>,
